@@ -25,17 +25,19 @@ public class AsyncChatListener implements Listener {
             try {
 
                 String format = ConfigBuilder.main.getConfig().getString("format");
+                if(format==null)
+                    format="{PREFIX}{DISPLAYNAME}{SUFFIX}&8: {MESSAGE}";
                 format = plu.replaceColorCodes(format);
                 chatFormat = Component.text(format);
                 chatFormat =  plu.replaceComopnentPlaceholders(chatFormat, player);
             }
-            catch (Exception ignored) {
+            catch (Exception e) {
                 player.sendMessage(Component.text("Błąd: ")
                         .color(NamedTextColor.DARK_RED)
                         .decorate(TextDecoration.BOLD)
                         .append(Component.text("Nie udało się wysłać poprawnej wiadomości. Skontaktuj się z administratorem!")
                                 .color(NamedTextColor.RED))
-                        .append(Component.text("("+ignored.toString()+")")
+                        .append(Component.text("("+e+")")
                                 .color(NamedTextColor.GRAY))
                 );
             }

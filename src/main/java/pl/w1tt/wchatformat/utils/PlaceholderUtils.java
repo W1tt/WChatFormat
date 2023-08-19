@@ -15,7 +15,6 @@ import org.bukkit.inventory.ItemStack;
 import pl.w1tt.wchatformat.config.ConfigBuilder;
 
 import java.text.SimpleDateFormat;
-import java.util.Collection;
 import java.util.Date;
 import java.util.List;
 import java.util.regex.Matcher;
@@ -29,7 +28,7 @@ public class PlaceholderUtils {
         return s.replaceAll("&", String.valueOf(LegacyComponentSerializer.SECTION_CHAR));
     }
 
-    //This method replaces placeholders from config with the correct informations. ONLY IN STRING
+    //This method replaces placeholders from config with the correct information. ONLY IN STRING
     public String replaceStringPlaceholders(String s, Player player){
         //Prefix & suffix
         String prefix = "";
@@ -56,7 +55,7 @@ public class PlaceholderUtils {
         return s;
     }
 
-    //This method replaces placeholders from config with the correct informations. ONLY IN KYORI COMPONENTS
+    //This method replaces placeholders from config with the correct information. ONLY IN KYORI COMPONENTS
     public Component replaceComopnentPlaceholders(Component s, Player player){
         //Prefix & suffix
         String prefix = "";
@@ -121,16 +120,14 @@ public class PlaceholderUtils {
         //Alphabetic color codes
         for(int i=0;i<6;i++){
             char a = (char)('a'+i);
-            String b = String.valueOf(a);
-            if(p.hasPermission("wchatformat.color."+String.valueOf(a))) {
-                s = s.replaceAll("&"+b, "" + LegacyComponentSerializer.SECTION_CHAR + b);
+            if(p.hasPermission("wchatformat.color."+ a)) {
+                s = s.replaceAll("&"+a, "" + LegacyComponentSerializer.SECTION_CHAR + a);
             }
         }
         for(int i=0;i<6;i++){
             char a = (char)('k'+i);
-            String b = String.valueOf(a);
-            if(p.hasPermission("wchatformat.color."+String.valueOf(a))) {
-                s = s.replaceAll("&"+b, "" + LegacyComponentSerializer.SECTION_CHAR + b);
+            if(p.hasPermission("wchatformat.color."+ a)) {
+                s = s.replaceAll("&"+a, "" + LegacyComponentSerializer.SECTION_CHAR + a);
             }
         }
         if(p.hasPermission("wchatformat.color.r")) {
@@ -153,7 +150,7 @@ public class PlaceholderUtils {
     public Component replaceItemChat(Component c, Player p){
         Component result = c;
         ItemStack item = p.getInventory().getItemInMainHand();
-        Component itemName = Component.text("");
+        Component itemName;
         if(item.getItemMeta()!=null)
             if(item.getItemMeta().displayName()!=null)
                 itemName=item.getItemMeta().displayName();
@@ -197,7 +194,7 @@ public class PlaceholderUtils {
     public Component replaceNicksToMentions(Component c){
         var playerList = ConfigBuilder.main.getServer().getOnlinePlayers();
         for (Player player : playerList) {
-            Component result = Component.empty();;
+            Component result = Component.empty();
             List<String> hover = ConfigBuilder.main.getConfig().getStringList("player-hover.format");
             for (String hoverLine : hover
             ) {

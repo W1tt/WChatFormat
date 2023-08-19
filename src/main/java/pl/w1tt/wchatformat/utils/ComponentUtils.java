@@ -12,7 +12,7 @@ public class ComponentUtils {
 
     //Returns the component which is showed, when hovering over player's display name in chat messages
     public Component getPlayerChatHover(Player p){
-        Component result = Component.empty();;
+        Component result = Component.empty();
         List<String> hover = ConfigBuilder.main.getConfig().getStringList("player-hover.format");
         for (String hoverLine : hover
              ) {

@@ -15,11 +15,7 @@ public class ConfigBuilder {
     public ConfigBuilder(Wchatformat instance){
         main=instance;
     }
-    public ConfigBuilder(){};
 
-    public Wchatformat getMainInstance(){
-        return main;
-    }
     public void build(FileConfiguration config, Wchatformat main){
         config.addDefault("format", "{PREFIX}{DISPLAYNAME}{SUFFIX}&8: {MESSAGE}");
         config.addDefault("msg-format-sender", "&7[&eJa &7-> {PREFIX}{DISPLAYNAME}{SUFFIX}&7] &8>> &r{MESSAGE}");

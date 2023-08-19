@@ -10,12 +10,8 @@ import pl.w1tt.wchatformat.listeners.AsyncChatListener;
 
 public final class Wchatformat extends JavaPlugin {
 
-    public Wchatformat instance = this;
     public FileConfiguration config = this.getConfig();
 
-    public Wchatformat getInstance(){
-        return instance;
-    }
     @Override
     public void onEnable() {
         ConfigBuilder configBuilder = new ConfigBuilder(this);

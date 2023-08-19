@@ -1,7 +1,6 @@
 package pl.w1tt.wchatformat.utils;
 
 import com.earth2me.essentials.Essentials;
-import net.ess3.api.IUser;
 import net.kyori.adventure.text.Component;
 import net.kyori.adventure.text.TextReplacementConfig;
 import net.kyori.adventure.text.serializer.legacy.LegacyComponentSerializer;
@@ -16,7 +15,11 @@ public class MsgUtils {
 
     public void msg(Player p1, Player p2, String m){
         String format1 = ConfigBuilder.main.getConfig().getString("msg-format-sender");
+        if(format1==null)
+            format1="&7[&eJa &7-> {PREFIX}{DISPLAYNAME}{SUFFIX}&7] &8>> &r{MESSAGE}";
         String format2 = ConfigBuilder.main.getConfig().getString("msg-format-viewer");
+        if(format2==null)
+            format2="&7[{PREFIX}{DISPLAYNAME}{SUFFIX} &7-> &eJa&7] &8>> &r{MESSAGE}";
         format1 = plu.replaceColorCodes(format1);
         format2 = plu.replaceColorCodes(format2);
         Component chatFormat1 = Component.text(format1);
@@ -46,10 +49,11 @@ public class MsgUtils {
         msgp2 = msgp2.replaceText(trc);
         if(ConfigBuilder.main.getServer().getPluginManager().isPluginEnabled("Essentials")){
             Essentials essentials = (Essentials)ConfigBuilder.main.getServer().getPluginManager().getPlugin("Essentials");
-            if(!essentials.getUser(p2).isIgnoredPlayer(essentials.getUser(p1))) {
-                p2.sendMessage(msgp2);
-                p2.setMetadata("wchatformat-lastmsg", new FixedMetadataValue(ConfigBuilder.main, p1.getName()));
-            }
+            if(essentials!=null)
+                if(!essentials.getUser(p2).isIgnoredPlayer(essentials.getUser(p1))) {
+                    p2.sendMessage(msgp2);
+                    p2.setMetadata("wchatformat-lastmsg", new FixedMetadataValue(ConfigBuilder.main, p1.getName()));
+                }
         }else{
             p2.sendMessage(msgp2);
             p2.setMetadata("wchatformat-lastmsg", new FixedMetadataValue(ConfigBuilder.main, p1.getName()));
