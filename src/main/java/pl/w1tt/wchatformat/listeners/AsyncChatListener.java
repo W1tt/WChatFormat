@@ -45,13 +45,13 @@ public class AsyncChatListener implements Listener {
             String font = "default";
             if(player.hasPermission("wchatformat.fonts"))
                 if(content.startsWith("<f:uniform>")){
-                    content = content.replaceAll("<f:uniform>","");
+                    content = content.replaceFirst("<f:uniform>","");
                     font="uniform";
                 }else if(content.startsWith("<f:default>")){
-                    content = content.replaceAll("<f:default>","");
+                    content = content.replaceFirst("<f:default>","");
                     font="default";
                 }else if(content.startsWith("<f:alt>")){
-                    content = content.replaceAll("<f:alt>","");
+                    content = content.replaceFirst("<f:alt>","");
                     font="alt";
                 }
             content = plu.checkColorPerms(content, player);
