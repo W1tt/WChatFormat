@@ -1,0 +1,24 @@
+name: Wchatformat
+version: '${version}'
+main: pl.w1tt.wchatformat.Wchatformat
+api-version: 1.20
+prefix: WChatFormat
+softdepend: [ LuckPerms ]
+authors: [ W1tt ]
+description: Chat format & utils plugin ONLY FOR PAPERMC
+website: w1tt.pl
+commands:
+  wchatformat:
+    description: Główna komenda pluginu
+    usage: §cPoprawne użycie /<command> reload
+    permission: wchatformat.command.help
+    permission-message: §cNie masz pozwolenia na korzystanie z tej komendy!
+    aliases: [wcf, chatformat, format]
+  msg:
+    description: Wyślij prywatną wiadomość do innego gracza
+    usage: §cPoprawne użycie /<command> <gracz> <wiadomość>
+    aliases: [tell, m, pm]
+  reply:
+    description: Odpowiedz osobie, z którą ostatnio pisałeś
+    usage: §cPoprawne użycie /<command> <wiadomość>
+    aliases: [r]
