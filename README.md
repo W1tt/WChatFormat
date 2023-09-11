@@ -24,7 +24,7 @@ player-hover:
 - msg-on-click - True if you want to suggest /msg command after clicking on player's displayname in chat
 - player-hover - The text that appears after hovering over the player's displayname in chat
 
-#To-do list
+#To do list
 - PlaceholderAPI support
 - Vanish support
 - Ignore command, or Essentials ignore command support (if installed)
