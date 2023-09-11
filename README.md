@@ -1,9 +1,9 @@
 # WChatFormat
 Simple chat format plugin for PaperMC servers, currently not compatible with PlaceholderAPI
 
-#Requirements
+# Requirements
 Currently this plugin does not require any external library or another plugin to run correctly, but in future it's going to depend on PlaceholderAPI
-#Config
+# Config
 ```
 msg-format-sender: '&7(&eJa &7→ {PREFIX}{DISPLAYNAME}{SUFFIX}&7) &8» &r{MESSAGE}' 
 msg-format-viewer: '&7({PREFIX}{DISPLAYNAME}{SUFFIX} &7→ &eJa&7) &8» &r{MESSAGE}'
@@ -24,7 +24,7 @@ player-hover:
 - msg-on-click - True if you want to suggest /msg command after clicking on player's displayname in chat
 - player-hover - The text that appears after hovering over the player's displayname in chat
 
-#To do list
+# To-do list
 - PlaceholderAPI support
 - Vanish support
 - Ignore command, or Essentials ignore command support (if installed)
